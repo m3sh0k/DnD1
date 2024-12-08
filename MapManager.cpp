@@ -22,21 +22,26 @@ void MapManager::openMap(const QString &filePath)
     QWidget *mapTab = new QWidget(tabWidget);
     QVBoxLayout *layout = new QVBoxLayout(mapTab);
 
-    // Загружаем карту
-    QPixmap pixmap(filePath);
-    if (!pixmap.isNull()) {
-        QLabel *mapLabel = new QLabel(mapTab);
-        mapLabel->setAlignment(Qt::AlignCenter);
-        mapLabel->setPixmap(pixmap.scaled(tabWidget->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    // Создаем MapWidget
+    MapWidget *mapWidget = new MapWidget(mapTab);
+    mapWidget->setImage(QImage(filePath));  // Загружаем изображение в MapWidget
 
-        layout->addWidget(mapLabel);
-        mapTab->setLayout(layout);
+    layout->addWidget(mapWidget);  // Добавляем MapWidget на вкладку
+    mapTab->setLayout(layout);
 
-        // Добавляем вкладку
-        tabWidget->addTab(mapTab, fileInfo.fileName());
-        tabWidget->setCurrentWidget(mapTab);
-    } else {
-        QMessageBox::warning(tabWidget, "Ошибка", "Не удалось загрузить карту. Проверьте формат файла.");
-        delete mapTab;
+    // Добавляем вкладку
+    tabWidget->addTab(mapTab, fileInfo.fileName());
+    tabWidget->setCurrentWidget(mapTab);
+}
+
+void MapManager::saveMapAsJson(const QString &filePath)
+{
+    // Получаем текущий виджет карты
+    QWidget *currentWidget = tabWidget->currentWidget();
+    if (currentWidget) {
+        MapWidget *mapWidget = dynamic_cast<MapWidget*>(currentWidget->layout()->itemAt(0)->widget());
+        if (mapWidget) {
+            mapWidget->saveImageAsJson(filePath);  // Сохраняем в JSON
+        }
     }
 }

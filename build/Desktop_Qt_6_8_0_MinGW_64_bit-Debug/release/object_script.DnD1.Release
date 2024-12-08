@@ -3,8 +3,10 @@ release/FileTreeManager.o
 release/MapManager.o
 release/main.o
 release/mainwindow.o
+release/mapwidget.o
 release/qrc_res.o
 release/moc_ContextMenuHandler.o
 release/moc_FileTreeManager.o
 release/moc_MapManager.o
 release/moc_mainwindow.o
+release/moc_mapwidget.o

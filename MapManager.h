@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTabWidget>
+#include "mapwidget.h"  // Подключаем MapWidget
 
 class MapManager : public QObject
 {
@@ -11,6 +12,7 @@ class MapManager : public QObject
 public:
     explicit MapManager(QTabWidget *tabWidget, QObject *parent = nullptr);
     void openMap(const QString &filePath);
+    void saveMapAsJson(const QString &filePath);
 
 private:
     QTabWidget *tabWidget;

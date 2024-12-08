@@ -13,13 +13,15 @@ SOURCES += \
     FileTreeManager.cpp \
     MapManager.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mapwidget.cpp
 
 HEADERS += \
     ContextMenuHandler.h \
     FileTreeManager.h \
     MapManager.h \
-    mainwindow.h
+    mainwindow.h \
+    mapwidget.h
 
 FORMS += \
     mainwindow.ui

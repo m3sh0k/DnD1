@@ -3,6 +3,7 @@
 #include "FileTreeManager.h"
 #include "MapManager.h"
 #include "ContextMenuHandler.h"
+#include "mapwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
