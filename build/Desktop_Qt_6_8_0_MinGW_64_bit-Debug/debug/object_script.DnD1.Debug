@@ -1,0 +1,10 @@
+debug/ContextMenuHandler.o
+debug/FileTreeManager.o
+debug/MapManager.o
+debug/main.o
+debug/mainwindow.o
+debug/qrc_res.o
+debug/moc_ContextMenuHandler.o
+debug/moc_FileTreeManager.o
+debug/moc_MapManager.o
+debug/moc_mainwindow.o
